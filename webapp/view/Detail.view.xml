@@ -1,0 +1,137 @@
+<mvc:View controllerName="com.sap.fcl.EmployeeManagement.controller.Detail" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:m="sap.m"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" showFooter="{= ${message>/}.length > 0 }">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<expandedHeading>
+					<m:Title text="{zemp_name}" wrapping="true"/>
+				</expandedHeading>
+				<snappedHeading>
+					<m:FlexBox fitContainer="true" alignItems="Center">
+						<m:Avatar src="sap-icon://picture" backgroundColor="Random" class="sapUiTinyMarginEnd"/>
+						<m:Title text="{zemp_name}" wrapping="true"/>
+					</m:FlexBox>
+				</snappedHeading>
+				<expandedContent>
+					<m:Text text="{zemp_position}"/>
+				</expandedContent>
+				<snappedContent>
+					<m:Text text="{zemp_position}"/>
+				</snappedContent>
+				<actions>
+					<m:OverflowToolbarButton visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+						icon="sap-icon://full-screen" tooltip="Full Screen" press="toggleFullScreen"/>
+					<m:OverflowToolbarButton visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+						icon="sap-icon://exit-full-screen" tooltip="Exit Full Screen" press="toggleFullScreen"/>
+					<m:OverflowToolbarButton icon="sap-icon://decline" tooltip="Exit" press="onCloseDetailPress"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:FlexBox wrap="Wrap">
+				<m:Avatar src="sap-icon://account" backgroundColor="Random" displaySize="L" class="sapUiTinyMarginEnd"/>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+					<m:ObjectStatus title="Employee ID" text="{zemp_id}"/>
+					<m:ObjectStatus title="Age" text="{zemp_age}"/>
+					<m:ObjectStatus title="Mobile Number" text="{zemp_mobile}"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection>
+				<subSections>
+					<ObjectPageSubSection title="Address" titleUppercase="false">
+						<blocks>
+							<m:Table id="lineItemsList" width="auto" items="{to_EmpAddress}" updateFinished=".onListUpdateFinished"
+								noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+								<m:headerToolbar>
+									<m:Toolbar>
+										<m:Title id="lineItemsTitle" text="{detailView>/lineItemListTitle}" titleStyle="H3" level="H3"/>
+									</m:Toolbar>
+								</m:headerToolbar>
+								<m:columns>
+									<m:Column>
+										<m:Text text="Employee ID"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Street No"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="City"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Country"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Region"/>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem>
+										<m:cells>
+											<m:ObjectIdentifier title="{zemp_id}"/>
+											<m:Input value="{zemp_addr_state}"/>
+											<m:Input value="{zemp_addr_city}"/>
+											<m:Input value="{zemp_addr_country}"/>
+											<m:Input value="{zemp_addr_region}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="Experience" titleUppercase="false">
+				<subSections>
+					<ObjectPageSubSection>
+						<blocks>
+							<m:Table id="idEmployee_Table1" width="auto" items="{to_EmpExperience}" updateFinished=".onListUpdateFinishedExperience"
+								noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}">
+								<m:headerToolbar>
+									<m:Toolbar>
+										<m:Title id="idEmployee_Title1" text="{detailView>/lineItemExperienceTitle}" titleStyle="H3" level="H3"/>
+									</m:Toolbar>
+								</m:headerToolbar>
+								<m:columns>
+									<m:Column>
+										<m:Text text="Employee ID"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Company Code"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Location"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Year of Experience"/>
+									</m:Column>
+									<m:Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+										<m:Text text="Organization Name"/>
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem>
+										<m:cells>
+											<m:ObjectIdentifier title="{zemp_id}"/>
+											<m:Input value="{zemp_exp_company_code}"/>
+											<m:Input value="{zemp_exp_company_location}"/>
+											<m:Input value="{zemp_exp_years}"/>
+											<m:Input value="{zemp_exp_company}"/>
+										</m:cells>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+		<footer>
+			<m:OverflowToolbar>
+				<m:Button icon="sap-icon://alert" text="{= ${message>/}.length }" visible="{= ${message>/}.length > 0 }" type="Emphasized"
+					press="onMessagePopoverPress"/>
+			</m:OverflowToolbar>
+		</footer>
+	</ObjectPageLayout>
+</mvc:View>

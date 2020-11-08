@@ -1,0 +1,59 @@
+{
+	"routes": [{
+		"path": "/webapp/resources/com/sap/reuselib/reuselibrary",
+		"target": {
+			"type": "application",
+			"name": "comsapreuselibreuselibrary"
+		},
+		"description": "Reusable Library"
+	}, {
+		"path": "/resources/com/sap/reuselib/reuselibrary",
+		"target": {
+			"type": "application",
+			"name": "comsapreuselibreuselibrary"
+		},
+		"description": "Reusable Library"
+	}, {
+		"path": "/webapp/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/webapp/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources"
+		},
+		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources"
+		},
+		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/sap/opu/odata",
+		"target": {
+			"type": "destination",
+			"name": "APCFSS",
+			"entryPath": "/sap/opu/odata"
+		},
+		"description": "APCFSS oData"
+	}],
+	"welcomeFile": "/webapp/test/flpSandbox.html",
+	"sendWelcomeFileRedirect": true
+}

@@ -1,0 +1,151 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4HANA')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_EMP_DETAILS_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="EmployeeHeader" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeID"/></Key><Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Id"
+					sap:creatable="false"/><Property Name="EmployeeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Name"
+					sap:creatable="false"/><Property Name="EmployeeAge" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Employee Age"
+					sap:creatable="false"/><Property Name="EmployeeMobile" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Mobile"
+					sap:creatable="false"/><Property Name="EmployeePosition" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Employee Position"
+					sap:creatable="false"/><NavigationProperty Name="NAV_EMPLOYEEHEADERTOITEM" Relationship="ZGW_EMP_DETAILS_SRV.AssociationEmployeeHeaderItem"
+					FromRole="FromRole_AssociationEmployeeHeaderItem" ToRole="ToRole_AssociationEmployeeHeaderItem" sap:label="Nav_EmployeeHeaderToItem"/><NavigationProperty Name="Nav_EmployeeExperience" Relationship="ZGW_EMP_DETAILS_SRV.AssoEmpHeaderToItemExp"
+					FromRole="FromRole_AssoEmpHeaderToItemExp" ToRole="ToRole_AssoEmpHeaderToItemExp" sap:label="Nav_EmployeeExperience"/><NavigationProperty Name="NavEmpPhoto" Relationship="ZGW_EMP_DETAILS_SRV.AsEmpPhoto" FromRole="FromRole_AsEmpPhoto"
+					ToRole="ToRole_AsEmpPhoto"/></EntityType>
+			<EntityType Name="EmployeeAddressItem" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeID"/></Key><Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeAddrStreet" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeAddrCity" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeAddrState" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeAddrRegion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmployeeAddrCountry" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="DynamicTile" sap:content-version="1">
+				<Key><PropertyRef Name="title"/></Key><Property Name="title" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Title" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="info" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Information" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="infoState" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Information State"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="number" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="icon" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Icon" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="numberFactor" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number Factor"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="subtitle" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Sub Title" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="numberUnit" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number Unit"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="numberState" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number State"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EmployeeExpItem" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeID"/></Key><Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmpCompanyCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmpCompanyLocation" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmpExperience" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmpCompanyName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="EmployeePositionF4" sap:content-version="1">
+				<Key><PropertyRef Name="EmpPosition"/><PropertyRef Name="EmployeeID"/></Key><Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="EmpPosition" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Employee Position"
+					sap:creatable="false" sap:sortable="false"/><Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Employee Id"
+					sap:creatable="false" sap:sortable="false"/></EntityType>
+			<EntityType Name="EmpPhotoItem" m:HasStream="true" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeID"/></Key><Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="EmployeeId"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="FileName" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="MimeType" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Content" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="MediaContent" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Z_C_EADDRType" sap:label="Employee Address Item" sap:content-version="1">
+				<Key><PropertyRef Name="zemp_id"/><PropertyRef Name="zemp_addr_street"/></Key><Property Name="zemp_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Char20"
+					sap:quickinfo="Char 20"/><Property Name="zemp_addr_street" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label=""
+					sap:quickinfo="30 Characters"/><Property Name="zemp_addr_city" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/><Property Name="zemp_addr_state" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/><Property Name="zemp_addr_region" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/><Property Name="zemp_addr_country" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label=""
+					sap:quickinfo="30 Characters"/></EntityType>
+			<EntityType Name="Z_C_EEXPType" sap:label="Employee Experience Item" sap:content-version="1">
+				<Key><PropertyRef Name="zemp_id"/><PropertyRef Name="zemp_exp_company_code"/></Key><Property Name="zemp_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Char20"
+					sap:quickinfo="Char 20"/><Property Name="zemp_exp_company_code" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Char20"
+					sap:quickinfo="Char 20"/><Property Name="zemp_exp_company_location" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label=""
+					sap:quickinfo="30 Characters"/><Property Name="zemp_exp_years" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label=""
+					sap:quickinfo="Character Field Length = 10"/><Property Name="zemp_exp_company" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="" sap:quickinfo="30 Characters"/></EntityType>
+			<EntityType Name="Z_C_EMPType" sap:label="Employee Consumption view" sap:content-version="1">
+				<Key><PropertyRef Name="zemp_id"/></Key><Property Name="zemp_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Employee ID"
+					sap:quickinfo="Char 20"/><Property Name="zemp_name" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Employee Name" sap:quickinfo="Char 20"/><Property Name="zemp_age" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Age" sap:quickinfo="3-Byte field"/><Property Name="zemp_mobile" Type="Edm.String" MaxLength="20" sap:display-format="UpperCase" sap:label="Mobile Number"
+					sap:quickinfo="Char 20"/><Property Name="zemp_position" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Position"
+					sap:quickinfo="Character field of length 40"/><NavigationProperty Name="to_EmpAddress" Relationship="ZGW_EMP_DETAILS_SRV.assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"
+					FromRole="FromRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5" ToRole="ToRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"/><NavigationProperty Name="to_EmpExperience" Relationship="ZGW_EMP_DETAILS_SRV.assoc_16504D4DF3AE695BAA0796F97CC8263E"
+					FromRole="FromRole_assoc_16504D4DF3AE695BAA0796F97CC8263E" ToRole="ToRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"/></EntityType>
+			<EntityType Name="Z_C_POSITIONType" sap:label="Employee Position VH" sap:content-version="1">
+				<Key><PropertyRef Name="zemp_id"/></Key><Property Name="zemp_id" Type="Edm.String" Nullable="false" MaxLength="20" sap:display-format="UpperCase" sap:label="Char20"
+					sap:quickinfo="Char 20"/><Property Name="zemp_position" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Char"
+					sap:quickinfo="Character field of length 40"/></EntityType>
+			<Association Name="AssoEmpHeaderToItemExp" sap:content-version="1"><End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AssoEmpHeaderToItemExp"/><End Type="ZGW_EMP_DETAILS_SRV.EmployeeExpItem" Multiplicity="*" Role="ToRole_AssoEmpHeaderToItemExp"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AssoEmpHeaderToItemExp"><PropertyRef Name="EmployeeID"/></Principal>
+					<Dependent Role="ToRole_AssoEmpHeaderToItemExp"><PropertyRef Name="EmployeeID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AsEmpPhoto" sap:content-version="1"><End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AsEmpPhoto"/><End Type="ZGW_EMP_DETAILS_SRV.EmpPhotoItem" Multiplicity="*" Role="ToRole_AsEmpPhoto"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AsEmpPhoto"><PropertyRef Name="EmployeeID"/></Principal>
+					<Dependent Role="ToRole_AsEmpPhoto"><PropertyRef Name="EmployeeID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AssociationEmployeeHeaderItem" sap:content-version="1"><End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AssociationEmployeeHeaderItem"/><End Type="ZGW_EMP_DETAILS_SRV.EmployeeAddressItem" Multiplicity="*" Role="ToRole_AssociationEmployeeHeaderItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AssociationEmployeeHeaderItem"><PropertyRef Name="EmployeeID"/></Principal>
+					<Dependent Role="ToRole_AssociationEmployeeHeaderItem"><PropertyRef Name="EmployeeID"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_2A32F1ACE5C28E98E22DB66786C0DCA5" sap:content-version="1"><End Type="ZGW_EMP_DETAILS_SRV.Z_C_EMPType" Multiplicity="1" Role="FromRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"/><End Type="ZGW_EMP_DETAILS_SRV.Z_C_EADDRType" Multiplicity="*" Role="ToRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"><PropertyRef Name="zemp_id"/></Principal>
+					<Dependent Role="ToRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"><PropertyRef Name="zemp_id"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="assoc_16504D4DF3AE695BAA0796F97CC8263E" sap:content-version="1"><End Type="ZGW_EMP_DETAILS_SRV.Z_C_EMPType" Multiplicity="1" Role="FromRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"/><End Type="ZGW_EMP_DETAILS_SRV.Z_C_EEXPType" Multiplicity="*" Role="ToRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"><PropertyRef Name="zemp_id"/></Principal>
+					<Dependent Role="ToRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"><PropertyRef Name="zemp_id"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZGW_EMP_DETAILS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="Z_C_EADDR" EntityType="ZGW_EMP_DETAILS_SRV.Z_C_EADDRType" sap:content-version="1"/><EntitySet Name="Z_C_EEXP" EntityType="ZGW_EMP_DETAILS_SRV.Z_C_EEXPType" sap:content-version="1"/><EntitySet Name="Z_C_EMP" EntityType="ZGW_EMP_DETAILS_SRV.Z_C_EMPType" sap:searchable="true" sap:content-version="1"/><EntitySet Name="Z_C_POSITION" EntityType="ZGW_EMP_DETAILS_SRV.Z_C_POSITIONType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="EmployeeHeaderSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeHeader" sap:creatable="false" sap:deletable="false"
+				sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EmployeeAddressItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeAddressItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="DynamicTileSet" EntityType="ZGW_EMP_DETAILS_SRV.DynamicTile" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EmployeeExpItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeExpItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EmployeePositionF4Set" EntityType="ZGW_EMP_DETAILS_SRV.EmployeePositionF4" sap:creatable="false" sap:deletable="false"
+				sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="EmpPhotoItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmpPhotoItem" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+				<AssociationSet Name="AssociationEmployeeHeaderItemSet" Association="ZGW_EMP_DETAILS_SRV.AssociationEmployeeHeaderItem"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="EmployeeHeaderSet" Role="FromRole_AssociationEmployeeHeaderItem"/><End EntitySet="EmployeeAddressItemSet" Role="ToRole_AssociationEmployeeHeaderItem"/></AssociationSet>
+				<AssociationSet Name="AsEmpPhotoSet" Association="ZGW_EMP_DETAILS_SRV.AsEmpPhoto" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="EmployeeHeaderSet" Role="FromRole_AsEmpPhoto"/><End EntitySet="EmpPhotoItemSet" Role="ToRole_AsEmpPhoto"/></AssociationSet>
+				<AssociationSet Name="assoc_16504D4DF3AE695BAA0796F97CC8263E" Association="ZGW_EMP_DETAILS_SRV.assoc_16504D4DF3AE695BAA0796F97CC8263E"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_EMP" Role="FromRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"/><End EntitySet="Z_C_EEXP" Role="ToRole_assoc_16504D4DF3AE695BAA0796F97CC8263E"/></AssociationSet>
+				<AssociationSet Name="assoc_2A32F1ACE5C28E98E22DB66786C0DCA5" Association="ZGW_EMP_DETAILS_SRV.assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="Z_C_EMP" Role="FromRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"/><End EntitySet="Z_C_EADDR" Role="ToRole_assoc_2A32F1ACE5C28E98E22DB66786C0DCA5"/></AssociationSet>
+				<AssociationSet Name="AssoEmpHeaderToItemExpSet" Association="ZGW_EMP_DETAILS_SRV.AssoEmpHeaderToItemExp" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="EmployeeHeaderSet" Role="FromRole_AssoEmpHeaderToItemExp"/><End EntitySet="EmployeeExpItemSet" Role="ToRole_AssoEmpHeaderToItemExp"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EADDRType/zemp_id"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EEXPType/zemp_id"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EMPType/zemp_id"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EADDRType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>zemp_id</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EEXPType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>zemp_id</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZGW_EMP_DETAILS_SRV.Z_C_EMPType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>zemp_id</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_EMP_DETAILS_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_EMP_DETAILS_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
