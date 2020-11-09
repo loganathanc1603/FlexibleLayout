@@ -51,16 +51,13 @@
 		"dependencies": {
 			"minUI5Version": "1.66.0",
 			"libs": {
-				"sap.ui.core": {},
-				"sap.m": {},
-				"sap.f": {},
-				"sap.ushell": {},
 				"sap.collaboration": {
 					"lazy": true
 				},
-				"com.sap.reuselib.reuselibrary": {
-					"minVersion": "1.0.0"
-				}
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ushell": {}
 			}
 		},
 		"contentDensities": {

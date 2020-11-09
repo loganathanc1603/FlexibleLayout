@@ -1,6 +1,6 @@
 sap.ui.define([
-	"com/sap/reuselib/reuselibrary/controls/BaseController",
-	//"./BaseController",
+	//"com/sap/reuselib/reuselibrary/controls/BaseController",
+	"./BaseController",
 	"sap/ui/model/json/JSONModel",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/Filter",

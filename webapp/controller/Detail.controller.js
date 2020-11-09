@@ -1,10 +1,11 @@
 sap.ui.define([
-	"com/sap/reuselib/reuselibrary/controls/BaseController",
+	//	"com/sap/reuselib/reuselibrary/controls/BaseController",
+	"./BaseController",
 	"sap/ui/model/json/JSONModel",
 	"../model/formatter",
 	"sap/ui/core/message/Message",
 	"sap/ui/core/library"
-], function (BaseController, JSONModel, formatter, Message, library) {
+], function(BaseController, JSONModel, formatter, Message, library) {
 	"use strict";
 
 	// shortcut for sap.ui.core.MessageType
@@ -18,7 +19,7 @@ sap.ui.define([
 		/* lifecycle methods                                           */
 		/* =========================================================== */
 
-		onInit: function () {
+		onInit: function() {
 			//Message Manager Setting
 			var oMessageManager = sap.ui.getCore().getMessageManager(),
 				oView = this.getView();
@@ -49,7 +50,7 @@ sap.ui.define([
 		 * @param {object} oEvent an event containing the total number of items in the list
 		 * @private
 		 */
-		onListUpdateFinished: function (oEvent) {
+		onListUpdateFinished: function(oEvent) {
 			var sTitle,
 				iTotalItems = oEvent.getParameter("total"),
 				oViewModel = this.getModel("detailView");
@@ -76,7 +77,7 @@ sap.ui.define([
 		 * @param {object} oEvent an event containing the total number of items in the list
 		 * @private
 		 */
-		onListUpdateFinishedExperience: function (oEvent) {
+		onListUpdateFinishedExperience: function(oEvent) {
 			var sTitle,
 				iTotalItems = oEvent.getParameter("total"),
 				oViewModel = this.getModel("detailView");
@@ -108,11 +109,11 @@ sap.ui.define([
 		 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
 		 * @private
 		 */
-		_onObjectMatched: function (oEvent) {
+		_onObjectMatched: function(oEvent) {
 			this.onClearPress();
 			var sObjectId = oEvent.getParameter("arguments").objectId;
 			this.getModel("appView").setProperty("/layout", "TwoColumnsMidExpanded");
-			this.getModel().metadataLoaded().then(function () {
+			this.getModel().metadataLoaded().then(function() {
 				var sObjectPath = this.getModel().createKey("Z_C_EMP", {
 					zemp_id: sObjectId
 				});
@@ -127,7 +128,7 @@ sap.ui.define([
 		 * @param {string} sObjectPath path to the object to be bound to the view.
 		 * @private
 		 */
-		_bindView: function (sObjectPath) {
+		_bindView: function(sObjectPath) {
 			// Set busy indicator during view binding
 			var oViewModel = this.getModel("detailView");
 
@@ -138,17 +139,17 @@ sap.ui.define([
 				path: sObjectPath,
 				events: {
 					change: this._onBindingChange.bind(this),
-					dataRequested: function () {
+					dataRequested: function() {
 						oViewModel.setProperty("/busy", true);
 					},
-					dataReceived: function () {
+					dataReceived: function() {
 						oViewModel.setProperty("/busy", false);
 					}
 				}
 			});
 		},
 
-		_onBindingChange: function () {
+		_onBindingChange: function() {
 			var oView = this.getView(),
 				oElementBinding = oView.getElementBinding();
 
@@ -178,7 +179,7 @@ sap.ui.define([
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 		},
 
-		_onMetadataLoaded: function () {
+		_onMetadataLoaded: function() {
 			// Store original busy indicator delay for the detail view
 			var iOriginalViewBusyDelay = this.getView().getBusyIndicatorDelay(),
 				oViewModel = this.getModel("detailView"),
@@ -190,7 +191,7 @@ sap.ui.define([
 			oViewModel.setProperty("/delay", 0);
 			oViewModel.setProperty("/lineItemTableDelay", 0);
 
-			oLineItemTable.attachEventOnce("updateFinished", function () {
+			oLineItemTable.attachEventOnce("updateFinished", function() {
 				// Restore original busy indicator delay for line item table
 				oViewModel.setProperty("/lineItemTableDelay", iOriginalLineItemTableBusyDelay);
 			});
@@ -204,7 +205,7 @@ sap.ui.define([
 		/**
 		 * Set the full screen mode to false and navigate to master page
 		 */
-		onCloseDetailPress: function () {
+		onCloseDetailPress: function() {
 			this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", false);
 			// No item should be selected on master after detail page is closed
 			this.getOwnerComponent().oListSelector.clearMasterListSelection();
@@ -214,7 +215,7 @@ sap.ui.define([
 		/**
 		 * Toggle between full and non full screen mode.
 		 */
-		toggleFullScreen: function () {
+		toggleFullScreen: function() {
 			var bFullScreen = this.getModel("appView").getProperty("/actionButtonsInfo/midColumn/fullScreen");
 			this.getModel("appView").setProperty("/actionButtonsInfo/midColumn/fullScreen", !bFullScreen);
 			if (!bFullScreen) {

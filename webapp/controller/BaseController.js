@@ -3,7 +3,7 @@ sap.ui.define([
 	"sap/ui/core/routing/History",
 	"sap/ui/core/message/Message",
 	"sap/ui/Device"
-], function (Controller, History, Message, Device) {
+], function(Controller, History, Message, Device) {
 	"use strict";
 
 	return Controller.extend("com.sap.fcl.EmployeeManagement.controller.BaseController", {
@@ -12,7 +12,7 @@ sap.ui.define([
 		 * @public
 		 * @returns {sap.ui.core.routing.Router} the router for this component
 		 */
-		getRouter: function () {
+		getRouter: function() {
 			return this.getOwnerComponent().getRouter();
 		},
 
@@ -22,7 +22,7 @@ sap.ui.define([
 		 * @param {string} sName the model name
 		 * @returns {sap.ui.model.Model} the model instance
 		 */
-		getModel: function (sName) {
+		getModel: function(sName) {
 			return this.getView().getModel(sName);
 		},
 
@@ -33,7 +33,7 @@ sap.ui.define([
 		 * @param {string} sName the model name
 		 * @returns {sap.ui.mvc.View} the view instance
 		 */
-		setModel: function (oModel, sName) {
+		setModel: function(oModel, sName) {
 			return this.getView().setModel(oModel, sName);
 		},
 
@@ -42,7 +42,7 @@ sap.ui.define([
 		 * @public
 		 * @returns {sap.ui.model.resource.ResourceModel} the resourceModel of the component
 		 */
-		getResourceBundle: function () {
+		getResourceBundle: function() {
 			return this.getOwnerComponent().getModel("i18n").getResourceBundle();
 		},
 
@@ -52,7 +52,7 @@ sap.ui.define([
 		 * If not, it will replace the current entry of the browser history with the master route.
 		 * @public
 		 */
-		onNavBack: function () {
+		onNavBack: function() {
 			var sPreviousHash = History.getInstance().getPreviousHash(),
 				oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
@@ -64,7 +64,7 @@ sap.ui.define([
 			}
 		},
 
-		setMessageManager: function (mParam) {
+		setMessageManager: function(mParam) {
 			var oMessage = new Message({
 				message: mParam.messageText,
 				type: mParam.messageType,
@@ -74,12 +74,12 @@ sap.ui.define([
 			sap.ui.getCore().getMessageManager().addMessages(oMessage);
 		},
 
-		onClearPress: function () {
+		onClearPress: function() {
 			// does not remove the manually set ValueStateText we set in onValueStatePress():
 			sap.ui.getCore().getMessageManager().removeAllMessages();
 		},
 
-		getFragment: function (sFrgNam, obj) {
+		getFragment: function(sFrgNam, obj) {
 			var oDialog = obj[sFrgNam];
 
 			if (!oDialog) {
@@ -90,6 +90,12 @@ sap.ui.define([
 				}
 			}
 			return oDialog;
+		},
+
+		onMessagePopoverPress: function(oEvent) {
+			var oD = this.getFragment("com.sap.reuselib.reuselibrary.fragments.MessagePopover", this._mDialogs);
+			this.getView().addDependent(oD);
+			oD.openBy(oEvent.getSource());
 		}
 
 	});
