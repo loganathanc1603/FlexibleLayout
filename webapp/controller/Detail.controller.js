@@ -226,6 +226,15 @@ sap.ui.define([
 				// reset to previous layout
 				this.getModel("appView").setProperty("/layout", this.getModel("appView").getProperty("/previousLayout"));
 			}
+		},
+
+		onPressDiscard: function() {
+			var bHasPendingChanges = this.getOwnerComponent().getModel().hasPendingChanges();
+			if (!bHasPendingChanges) {
+				sap.m.MessageBox.show("No Changes");
+			} else {
+				this.getOwnerComponent().getModel().resetChanges();
+			}
 		}
 
 	});

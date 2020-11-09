@@ -23,7 +23,8 @@
 		"sourceTemplate": {
 			"id": "sap.ui.ui5-template-plugin.2masterdetail",
 			"version": "1.78.4"
-		}
+		},
+		"_version": "1.3.0"
 	},
 	"sap.ui": {
 		"technology": "UI5",
@@ -39,7 +40,9 @@
 			"desktop": true,
 			"tablet": true,
 			"phone": true
-		}
+		},
+		"_version": "1.3.0",
+		"supportedThemes": []
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -73,7 +76,12 @@
 			},
 			"": {
 				"dataSource": "mainService",
-				"preload": true
+				"preload": true,
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultOperationMode": "Server",
+					"defaultCountMode": "Inline"
+				}
 			}
 		},
 		"routing": {
@@ -88,21 +96,15 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": "master"
-				},
-				{
-					"pattern": "Z_C_EMP/{objectId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": "master"
+			}, {
+				"pattern": "Z_C_EMP/{objectId}",
+				"name": "object",
+				"target": ["master", "object"]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",
@@ -125,6 +127,7 @@
 					"viewId": "notFound"
 				}
 			}
-		}
+		},
+		"_version": "1.2.0"
 	}
 }
