@@ -93,7 +93,7 @@ sap.ui.define([
 		},
 
 		onMessagePopoverPress: function(oEvent) {
-			var oD = this.getFragment("com.sap.reuselib.reuselibrary.fragments.MessagePopover", this._mDialogs);
+			var oD = this.getFragment("com.sap.fcl.EmployeeManagement.fragments.MessagePopover", this._mDialogs);
 			this.getView().addDependent(oD);
 			oD.openBy(oEvent.getSource());
 		}
